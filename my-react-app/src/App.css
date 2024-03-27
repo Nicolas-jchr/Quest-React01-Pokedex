@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: rgb(54, 77, 163);
+  color: black;
 }
 
 .logo {
@@ -39,4 +41,8 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.button {
+  background-color: black;
 }
