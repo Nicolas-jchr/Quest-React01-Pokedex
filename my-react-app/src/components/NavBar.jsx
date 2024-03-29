@@ -1,30 +1,32 @@
-import {PropTypes} from "prop-types";
+import { PropTypes } from "prop-types";
 
-function NavBar ({pokemonList,setPokemonIndex}) {
+function NavBar({ pokemonList, setPokemonIndex }) {
 
-    const pokemonSelect = (i) => {
-        setPokemonIndex(i);
-      };
+  return (
+
+    <>
     
+      {pokemonList.map((pokemon, index) => (
+        <button key={pokemon.name} onClick={() => {
+            setPokemonIndex(index);
+            if (index === 24) {
+              alert("Pika pika CHUUUUUUUUU !");
+            }
+          }}
+        >
 
-    return (
-        <>
-        {pokemonList.map((pokemon, i) => (
-            <button key={i} onClick={() => pokemonSelect(i)}>
-                {pokemon.name}
-            </button>
-        ))}
-  
-        </>
-    );
+          {pokemon.name}
 
+        </button>
+      ))}
+    </>
+  );
 }
 
 NavBar.propTypes = {
-    setPokemonIndex: PropTypes.number.isRequired,
-    pokemonIndex: PropTypes.number.isRequired,
-    pokemonList: PropTypes.array.isRequired,
-    
+  pokemonList: PropTypes.array.isRequired,
+  pokemonIndex: PropTypes.number.isRequired,
+  setPokemonIndex: PropTypes.func.isRequired,
 };
 
 export default NavBar;
